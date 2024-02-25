@@ -8,17 +8,22 @@ int main() {
 
     std::string result;
     std::string code;
-    std::getline(std::cin, code);
-    for(char c : code){
-        for(int i = 0 ; i < (int)alphabet.size() ; i++){
-            if(c == alphabet[i] && (i+1)%2==0){
-                result += alphabet[i-1];
-            } else if(c == alphabet[i] && (i+1)%2!=0){
-                result += alphabet[i+1];
-            } else if(c == ' '){break;}
-            else{continue;}
+    while(true)
+    {
+        result = "";
+        code = "";
+        std::getline(std::cin, code);
+        for (char c: code) {
+            for (int i = 0; i < (int) alphabet.size(); i++) {
+                if (c == alphabet[i] && (i + 1) % 2 == 0) {
+                    result += alphabet[i - 1];
+                } else if (c == alphabet[i] && (i + 1) % 2 != 0) {
+                    result += alphabet[i + 1];
+                } else if (c == ' ') { break; }
+                else { continue; }
+            }
+            if (c == ' ') { result += " "; }
         }
-        if(c == ' '){result += " ";}
+        std::cout << result<< std::endl;
     }
-    std::cout<<result;
 }
